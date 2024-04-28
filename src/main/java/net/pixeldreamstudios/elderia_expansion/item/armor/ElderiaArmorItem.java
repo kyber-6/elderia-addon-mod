@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.elderia_addon.item.armor;
+package net.pixeldreamstudios.elderia_expansion.item.armor;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;

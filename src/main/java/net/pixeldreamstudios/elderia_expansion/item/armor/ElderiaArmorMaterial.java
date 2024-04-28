@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.elderia_addon.item.armor;
+package net.pixeldreamstudios.elderia_expansion.item.armor;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.Util;
@@ -13,7 +13,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.pixeldreamstudios.elderia_addon.ElderiaAddon;
+import net.pixeldreamstudios.elderia_expansion.ElderiaExpansion;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -48,7 +48,7 @@ public enum ElderiaArmorMaterial implements ArmorMaterial {
     private final Map<Attribute, AttributeModifier> additionalAttributes;
 
     private ElderiaArmorMaterial(String pName, int pDurabilityMultiplier, EnumMap pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier pRepairIngredient, Map additionalAttributes) {
-        this.name = ElderiaAddon.MOD_ID + ":" + pName;
+        this.name = ElderiaExpansion.MOD_ID + ":" + pName;
         this.durabilityMultiplier = pDurabilityMultiplier;
         this.protectionFunctionForType = pProtectionFunctionForType;
         this.enchantmentValue = pEnchantmentValue;

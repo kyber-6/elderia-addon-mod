@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.elderia_addon.registry;
+package net.pixeldreamstudios.elderia_expansion.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -8,9 +8,9 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import net.pixeldreamstudios.elderia_addon.ElderiaAddon;
+import net.pixeldreamstudios.elderia_expansion.ElderiaExpansion;
 
-@Mod.EventBusSubscriber(modid = "elderia_addon", bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = ElderiaExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CreativeTabRegistry {
     private static final DeferredRegister<CreativeModeTab> TABS;
     public static final RegistryObject<CreativeModeTab> ELDERIA_TAB;
@@ -23,8 +23,8 @@ public class CreativeTabRegistry {
     }
 
     static {
-        TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ElderiaAddon.MOD_ID);
-        ELDERIA_TAB = TABS.register("elderia_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup." + ElderiaAddon.MOD_ID + ".elderia_tab")).icon(() -> new ItemStack(ItemRegistry.CRUSADER_HELMET.get())).displayItems((enabledFeatures, entries) -> {
+        TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ElderiaExpansion.MOD_ID);
+        ELDERIA_TAB = TABS.register("elderia_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup." + ElderiaExpansion.MOD_ID + ".elderia_tab")).icon(() -> new ItemStack(ItemRegistry.CRUSADER_HELMET.get())).displayItems((enabledFeatures, entries) -> {
             entries.accept(ItemRegistry.CRUSADER_HELMET.get());
             entries.accept(ItemRegistry.CRUSADER_CHESTPLATE.get());
             entries.accept(ItemRegistry.CRUSADER_LEGGINGS.get());

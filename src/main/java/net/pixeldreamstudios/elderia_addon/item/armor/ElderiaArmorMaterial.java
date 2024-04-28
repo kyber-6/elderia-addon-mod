@@ -27,8 +27,8 @@ public enum ElderiaArmorMaterial implements ArmorMaterial {
         p_266650_.put(ArmorItem.Type.HELMET, 3);
     }), 20, SoundEvents.ARMOR_EQUIP_CHAIN, 1.0F, 0.1F, () -> Ingredient.of(Items.IRON_INGOT), Map.of(
             AttributeRegistry.MAX_MANA.get(), new AttributeModifier("Max Mana", 75.0, Operation.ADDITION),
-            AttributeRegistry.HOLY_SPELL_POWER.get(), new AttributeModifier("Holy Power", 0.09, Operation.MULTIPLY_TOTAL),
-            Attributes.MOVEMENT_SPEED, new AttributeModifier("Movement Speed", -0.05, Operation.MULTIPLY_TOTAL)
+            AttributeRegistry.HOLY_SPELL_POWER.get(), new AttributeModifier("Holy Power", 0.09, Operation.MULTIPLY_BASE),
+            Attributes.MOVEMENT_SPEED, new AttributeModifier("Movement Speed", -0.05, Operation.MULTIPLY_BASE)
     ));
 
     private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (p_266653_) -> {

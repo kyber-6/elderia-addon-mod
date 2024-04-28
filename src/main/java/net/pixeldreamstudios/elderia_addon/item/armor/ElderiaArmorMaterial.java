@@ -5,6 +5,7 @@ import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -18,7 +19,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public enum ElderiaArmorMaterials implements ArmorMaterial {
+public enum ElderiaArmorMaterial implements ArmorMaterial {
     CRUSADER("crusader", 28, (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (p_266650_) -> {
         p_266650_.put(ArmorItem.Type.BOOTS, 3);
         p_266650_.put(ArmorItem.Type.LEGGINGS, 6);
@@ -44,8 +45,9 @@ public enum ElderiaArmorMaterials implements ArmorMaterial {
     private final float toughness;
     private final float knockbackResistance;
     private final LazyLoadedValue<Ingredient> repairIngredient;
+    private final Map<Attribute, AttributeModifier> additionalAttributes;
 
-    private ElderiaArmorMaterials(String pName, int pDurabilityMultiplier, EnumMap pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier pRepairIngredient, Map additionalAttributes) {
+    private ElderiaArmorMaterial(String pName, int pDurabilityMultiplier, EnumMap pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier pRepairIngredient, Map additionalAttributes) {
         this.name = ElderiaAddon.MOD_ID + ":" + pName;
         this.durabilityMultiplier = pDurabilityMultiplier;
         this.protectionFunctionForType = pProtectionFunctionForType;
@@ -54,6 +56,7 @@ public enum ElderiaArmorMaterials implements ArmorMaterial {
         this.toughness = pToughness;
         this.knockbackResistance = pKnockbackResistance;
         this.repairIngredient = new LazyLoadedValue(pRepairIngredient);
+        this.additionalAttributes = additionalAttributes;
     }
 
     @Override
@@ -94,5 +97,9 @@ public enum ElderiaArmorMaterials implements ArmorMaterial {
     @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
+    }
+
+    public Map<Attribute, AttributeModifier> getAdditionalAttributes() {
+        return this.additionalAttributes;
     }
 }

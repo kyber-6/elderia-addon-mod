@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "elderia_addon:item/crusader_chestplate"
-  }
-}
